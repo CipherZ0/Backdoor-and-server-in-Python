@@ -5,17 +5,17 @@ import socket
 import json 
 
 def reliable_send(data): 
-  jsondata =  json dumps(data) 
+  jsondata =  json.dumps(data) 
   target.send(jsondata.encode()) 
 
 def reliable_recv(): 
   data = ''
   while True:
-        Try:
+        try:
           data = data + target.recv(1024).decode().rstrip() 
           return json.loads(data) 
   except ValueError: 
-      Continue 
+      continue 
 
 #File name as parameter. Open the file you want to upload to the server (file_name) with rb (read bytes) and send the content to the server program 
 def upload_file(file_name): 
